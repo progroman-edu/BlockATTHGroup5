@@ -1,4 +1,4 @@
-
+// John Patrick Decano
 // JAVA PROGRAMMING PART 1; Private instance: class "Employee", using the variables employee_name, id and salary TO APPLY it base on the given problem
 // FEATURED: CODE THAT CHECKS IF THE SALARY IS HIGH OR LOW
 
@@ -86,5 +86,6 @@ public class Employee {
         in.close();
     }
 }
+
 
 

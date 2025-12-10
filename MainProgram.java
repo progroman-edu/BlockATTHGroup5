@@ -43,6 +43,8 @@ class Car {
     // Additional Features 
     private String color;
     private String engineType;
+    private boolean automatic; //Pardo
+    private double fuelCapacity; //Pardo
 
     // Constructor
     public Car(String company_name, String model_name, int year, double mileage) {
@@ -71,14 +73,22 @@ class Car {
 
     public void setEngineType(String type) { this.engineType = type; }
     public String getEngineType() { return engineType; }
+    
+    public void setAutomatic(boolean automatic) { this.automatic = automatic; } //Pardo
+    public boolean isAutomatic() { return automatic; }
 
+    public void setFuelCapacity(double fuelCapacity) { this.fuelCapacity = fuelCapacity; } //Pardo
+    public double getFuelCapacity() { return fuelCapacity; }
+    
     public String toString() {
         return "Car Company: " + company_name +
                 "\nModel: " + model_name +
                 "\nYear: " + year +
                 "\nMileage: " + mileage +
                 "\nColor: " + color +
-                "\nEngine: " + engineType;
+                "\nEngine: " + engineType+
+                "\nAutomatic: " + (automatic ? "Yes" : "No") + //Pardo
+                "\nFuel Capacity: " + fuelCapacity + "L"; //Pardo
     }
 }
 
@@ -134,7 +144,11 @@ public class MainProgram {
 
         car.setColor(JOptionPane.showInputDialog("Color:"));
         car.setEngineType(JOptionPane.showInputDialog("Engine Type:"));
+        car.setAutomatic(JOptionPane.showConfirmDialog(null, "Automatic Transmission?") == 0); //Pardo
+        car.setFuelCapacity(Double.parseDouble(JOptionPane.showInputDialog("Fuel Capacity (L):"))); //Pardo
+
 
         JOptionPane.showMessageDialog(null, car.toString());
     }
 }
+

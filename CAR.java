@@ -1,3 +1,4 @@
+// John Patrick Decano
 package car;
 import java.util.Scanner;
 
@@ -94,4 +95,5 @@ public class CAR {
 
         sc.close();
     }
+
 }

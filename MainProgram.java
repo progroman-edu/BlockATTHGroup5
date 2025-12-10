@@ -5,6 +5,12 @@ class Employee {
     private int employee_id;
     private String employee_name;
     private double employee_salary;
+    
+    // Additional Features - Odi
+    private String department;
+    private String position;
+    private int yearsOfExperience;
+    private boolean fullTime;
 
     // Constructor
     public Employee(int employee_id, String employee_name, double employee_salary) {
@@ -25,12 +31,29 @@ class Employee {
         DecimalFormat df = new DecimalFormat("$#,###.00");
         return df.format(employee_salary);
     }
+    
+    // Extra feature getters/setters - Odi
+    public void setDepartment(String department) { this.department = department; }
+    public String getDepartment() { return department; }
+
+    public void setPosition(String position) { this.position = position; }
+    public String getPosition() { return position; }
+
+    public void setYearsOfExperience(int years) { this.yearsOfExperience = years; }
+    public int getYearsOfExperience() { return yearsOfExperience; }
+
+    public void setFullTime(boolean fullTime) { this.fullTime = fullTime; }
+    public boolean isFullTime() { return fullTime; }
 
     // Display info
     public String toString() {
         return "Employee ID: " + employee_id +
                 "\nName: " + employee_name +
-                "\nSalary: " + getFormattedSalary();
+                "\nSalary: " + getFormattedSalary() +
+                "\nDepartment: " + department +
+                "\nPosition: " + position +
+                "\nExperience: " + yearsOfExperience + " years" +
+                "\nFull-time: " + (fullTime ? "Yes" : "No");    //Odi
     }
 }
 
@@ -129,6 +152,11 @@ public class MainProgram {
         double salary = Double.parseDouble(JOptionPane.showInputDialog("Enter Salary:"));
 
         Employee emp = new Employee(id, name, salary);
+        
+        emp.setDepartment(JOptionPane.showInputDialog("Department:"));
+        emp.setPosition(JOptionPane.showInputDialog("Position:"));
+        emp.setYearsOfExperience(Integer.parseInt(JOptionPane.showInputDialog("Years of Experience:"))); // Odi
+        emp.setFullTime(JOptionPane.showConfirmDialog(null, "Full-Time Employee?") == 0);
 
         JOptionPane.showMessageDialog(null, emp.toString());
     }
@@ -151,4 +179,5 @@ public class MainProgram {
         JOptionPane.showMessageDialog(null, car.toString());
     }
 }
+
 
